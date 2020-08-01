@@ -15,10 +15,7 @@
 手动安装。
 
 ## Install
-
-```bash
-$ npm i egg-swagger-doc --save
-```
+使用 [https://github.com/Yanshijie-EL/egg-swagger-doc](https://github.com/Yanshijie-EL/egg-swagger-doc)，扩展`contract`使用。
 
 ## Usage
 
@@ -96,7 +93,7 @@ class UserController extends Controller {
     a.Mothod,请求的方法(post/get/put/delete等)，不区分大小写。
     b.Path,请求的路由。
 
-@Request 
+@Request
 ---
 格式：@Request {Position} {Type} {Name} {Description}
 
