@@ -148,6 +148,8 @@ class HomeController extends Controller {
 ```
 如果在config中开启并定义了securityDefinitions,默认enableSecurity为false.则可在注释块中加入@apikey，加入安全验证。也可定义成其他名字，只需@定义好的字段名就好。关于securityDefinitions的定义可以自行搜索。
 
+如果config中定义了securities，会将配置的验证添加到所有的API中，无需在API注释块中加入@apikey
+
 ```js
 exports.swaggerdoc = {
   securityDefinitions: {
@@ -166,6 +168,7 @@ exports.swaggerdoc = {
     //   },
     // },
   },
+  // securities: ['apikey']
   enableSecurity: true,
 };
 ```
