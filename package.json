@@ -11,7 +11,8 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "koa-static-cache": "^5.1.2"
+    "koa-static-cache": "^5.1.2",
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "autod": "^3.0.0",

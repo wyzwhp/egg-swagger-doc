@@ -57,6 +57,7 @@ exports.swaggerdoc = {
     //   },
     // },
   },
+  // routers: ['/app_api', '/admin_api'],
   enableSecurity: false,
   // enableValidate: true,
   routerMap: false,
@@ -98,7 +99,7 @@ class UserController extends Controller {
 格式：@Request {Position} {Type} {Name} {Description}
 
     a.position.参数的位置,该值可以是body/path/query/header/formData.
-    b.Type.参数类型，body之外位置目前只支持基础类型,integer/string/boolean/number，及基础类型构成的数组，body中则支持contract中定义的类型。如果position是formData还将支持 file 类型
+    b.Type.参数类型，body之外位置目前只支持基础类型,integer/string/boolean/number，及基础类型构成的数组，body中则支持contract中定义的类型。如果position是formData还将支持 file 类型。如果是数组，可以定义为array[Type]
     c.Name.参数名称.如果参数名称以*开头则表示必要，否则非必要。
     d.Description.参数描述
     c.如果你想给query或者path的参数设置example，你可以在Description前添加以'eg:'开头的参数，实例如下
@@ -109,7 +110,7 @@ class UserController extends Controller {
 格式：@Response {HttpStatus} {Type} {Description}
 
     a.HttpStatus.Http状态码。
-    b.Type.同Request中body位置的参数类型。
+    b.Type.同Request中body位置的参数类型。如果是数组，可以定义为array[Type]
     d.Description.响应描述。
 
 @Deprecated
@@ -150,6 +151,8 @@ class HomeController extends Controller {
 
 如果config中定义了securities，会将配置的验证添加到所有的API中，无需在API注释块中加入@apikey
 
+如果config中定义了routers，会根据定义的router生成对应的API文档，`/app_api/doc`和`/admin_api/doc`
+
 ```js
 exports.swaggerdoc = {
   securityDefinitions: {
@@ -168,6 +171,7 @@ exports.swaggerdoc = {
     //   },
     // },
   },
+  routers: ['/app_api', '/admin_api'],
   // securities: ['apikey']
   enableSecurity: true,
 };
