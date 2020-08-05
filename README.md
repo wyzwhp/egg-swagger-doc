@@ -99,7 +99,7 @@ class UserController extends Controller {
 格式：@Request {Position} {Type} {Name} {Description}
 
     a.position.参数的位置,该值可以是body/path/query/header/formData.
-    b.Type.参数类型，body之外位置目前只支持基础类型,integer/string/boolean/number，及基础类型构成的数组，body中则支持contract中定义的类型。如果position是formData还将支持 file 类型。如果是数组，可以定义为array[Type]
+    b.Type.参数类型，body、query之外位置目前只支持基础类型,integer/string/boolean/number，及基础类型构成的数组，body、query中则支持contract中定义的类型（ps: query 支持的contact 不支持嵌套数据）。如果position是formData还将支持 file 类型。如果是数组，可以定义为array[Type]
     c.Name.参数名称.如果参数名称以*开头则表示必要，否则非必要。
     d.Description.参数描述
     c.如果你想给query或者path的参数设置example，你可以在Description前添加以'eg:'开头的参数，实例如下
